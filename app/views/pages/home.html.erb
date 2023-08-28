@@ -1,16 +1,13 @@
 <h1> Do you want to Rent a Plant ?</h1>
 <p> Below our collection , you can choose a category </p>
 
-<p> Categories </p>
-
-
-
-
-<ul>
-  <% @categories.each do |category| %>
-    <li><%= category.name %></li>
-  <% end %>
-</ul>
+<div>
+  <ul class="list-group">
+    <% @categories.each_with_index do |category, index| %>
+      <li class="list-group-item <%= index == 0 ? 'active' : '' %>" aria-current="true"><%= category.name %></li>
+    <% end %>
+  </ul>
+</div>
 
 
 <% if user_signed_in?  %>
