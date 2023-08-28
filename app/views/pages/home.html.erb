@@ -1,5 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1> Do you want to Rent a Plant ?</h1>
+<p> Below our collection , you can choose a category </p>
+
+<p> Categories </p>
+
+
+
+
+<ul>
+  <% @categories.each do |category| %>
+    <li><%= category.name %></li>
+  <% end %>
+</ul>
+
 
 <% if user_signed_in?  %>
   you are signed in as <%= current_user.email %>
