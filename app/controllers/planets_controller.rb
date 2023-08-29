@@ -7,7 +7,15 @@ class PlanetsController < ApplicationController
 
   def create
     @category = Category.find(params[:category_id])
-    
+  end
+
+
+  def destroy
+    @planet = Planet.find(params[:id])
+    if @planet.destroy
+      redirect_to planets_path(@planet)
+    else
+      render :index
   end
 
 end

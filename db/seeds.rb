@@ -15,3 +15,5 @@
 # category_names.each do |name|
 #   Category.create(name: name)
 # end
+
+Planet.create(title: "Mars")
