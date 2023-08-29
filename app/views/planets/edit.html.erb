@@ -1,0 +1,12 @@
+<h1>Edit planet</h1>
+
+<div>
+<%= render 'form', planet: @planet %>
+<% @planets.each do |planet| %>
+      <tr>
+        <td><%= planet.title %></td>
+        <td><%= planet.description %></td>
+        <td><%= link_to "Edit", edit_planet_path(planet) %></td>
+        </tr>
+    <% end %>
+</div>
