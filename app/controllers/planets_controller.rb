@@ -24,14 +24,23 @@ class PlanetsController < ApplicationController
   #Haya B
   def edit
     @planet = Planet.find(params[:id])
+    if current_user != @planet.user
+      redirect_to planets_path, alert: "You are not authorized to edit this planet."
+    end
   end
 
   def update
     @planet = Planet.find(params[:id])
-    if @planet.update(planet_params)
-      redirect_to(@planet)
+
+    # Ensure that only the owner can update the planet
+    if current_user == @planet.user
+      if @planet.update(planet_params)
+        redirect_to planets_path(@planet), notice: "Planet was successfully updated."
+      else
+        render :edit, status: :unprocessable_entity
+      end
     else
-      render :edit, status: :unprocessable_entity
+      redirect_to planets_path, alert: "You are not authorized to edit this planet."
     end
   end
 
@@ -39,7 +48,7 @@ class PlanetsController < ApplicationController
   def destroy
     @planet = Planet.find(params[:id])
     if @planet.destroy
-      redirect_to planets_path(@planet)
+      redirect_to root_path, notice: "Planet was successfully deleted."
     else
       render :index
     end
