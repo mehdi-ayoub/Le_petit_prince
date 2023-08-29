@@ -9,17 +9,6 @@
   </ul>
 </div>
 
-
-<div>
-  <ol style="list-style: none;">
-    <li>
-      <%= planet.title %> | <button type="button" class="btn btn-danger"<%= link_to "Delete", "planet_path(planet)", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the planet?"}%>
-      </button>
-    </li>
-  </ol>
-</div>
-
-
 <% if user_signed_in?  %>
   you are signed in as <%= current_user.email %>
 <% else %>
