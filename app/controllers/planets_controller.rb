@@ -7,7 +7,9 @@ class PlanetsController < ApplicationController
 
   def create
     @category = Category.find(params[:category_id])
-    
   end
 
+  def show
+    @planet = Planet.find(params[:id])
+  end
 end
