@@ -1,0 +1,8 @@
+<%= simple_form_for @planet do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :renting_price %>
+  <%= f.association :category %>
+  <%= f.input :image_url %>
+  <%= f.submit "create planet" %>
+<% end %>
