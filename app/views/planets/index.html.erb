@@ -1,0 +1,27 @@
+<!-- app/views/planets/index.html.erb -->
+
+<div class="container">
+  <h1>All Planets</h1>
+
+  <div class="row">
+    <% @planets.each do |planet| %>
+      <div class="col-md-4 mb-4">
+        <div class="card" style="width: 18rem;">
+          <img src="<%= planet.image_url %>" class="card-img-top" alt="<%= planet.title %> Image">
+          <div class="card-body">
+            <h5 class="card-title"><%= planet.title %></h5>
+            <p class="card-text"><%= planet.description %></p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Renting Price: $<%= planet.renting_price %></li>
+            <li class="list-group-item">Owner: <%= planet.user.name %></li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Edit Planet</a>
+            <a href="#" class="card-link">Delete Planet</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
