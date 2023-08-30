@@ -47,6 +47,7 @@ examples.each do |title, description|
   Planet.create!(
     title: title,
     description: description,
+    spaceport: "16 Villa Gaudelet, Paris",
     renting_price: 50,
     image_url: "",
     category: Category.all.sample,

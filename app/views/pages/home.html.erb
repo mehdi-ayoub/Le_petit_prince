@@ -2,9 +2,11 @@
 <p> Click on the below for all the collections </p>
 <h4><%= link_to "Rent a Planet", planets_path, class: "btn btn-primary"%></h4>
 
+<%= image_tag('planet.jpg', alt: 'Description', class: 'img-thumbnail', width: '1500') %>
+
 <p> Main Planets Categories </p>
 
-<div>
+<div class= "container">
   <ul class="list-group">
     <% @categories.each_with_index do |category, index| %>
       <li class="list-group-item" aria-current="true"><%= category.name %></li>
