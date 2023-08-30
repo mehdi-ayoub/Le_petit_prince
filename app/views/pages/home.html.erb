@@ -1,12 +1,14 @@
-<h1> Do you want to Rent a Planet ?</h1>
-<p> Click on the below for all the collections </p>
-<h4><%= link_to "Rent a Planet", planets_path, class: "btn btn-primary"%></h4>
 
-<%= image_tag('planet.jpg', alt: 'Description', class: 'img-thumbnail', width: '1500') %>
 
-<p> Main Planets Categories </p>
+<div class= "container mt-4" style="text-align: center;">
+  <section class="hero bg-primary text-white text-center py-5 mt-2 mb-2">
+    <div class="container">
+      <h1 class="display-4">Find Your Perfect Planet</h1>
+      <p class="lead">Explore unique homes, experiences, and places around the universe.</p>
+      <p><%= link_to "Get Started", planets_path, class: "btn btn-light btn-lg"%></p>
+    </div>
+  </section>
 
-<div class= "container">
   <ul class="list-group">
     <% @categories.each_with_index do |category, index| %>
       <li class="list-group-item" aria-current="true"><%= category.name %></li>
@@ -14,9 +16,8 @@
   </ul>
 </div>
 
-
-<% if user_signed_in?  %>
-  you are signed in as <%= current_user.email %>
-<% else %>
-  you are not signed in
-<% end %>
+<footer class="footer bg-dark text-white py-4 mt-2">
+  <div class="container text-center">
+    <p>&copy; 2023 Your Company. All rights reserved.</p>
+  </div>
+</footer>

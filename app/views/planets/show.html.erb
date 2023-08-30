@@ -1,11 +1,32 @@
 
 
-<%= render "renting_form", planet: @planet, renting: @renting %>
+
+<div class="container show-planet">
+  <h1> Planet Details </h1>
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card" style="width: 18rem;">
+        <img src="<%= @planet.image_url %>" class="card-img-top" alt="<%= @planet.title %> Image">
+        <div class="card-body">
+          <h5 class="card-title"><%= @planet.title %></h5>
+          <p class="card-text"> <b> Departure Location: </b> <br> <%= @planet.spaceport %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= @planet.description  %></li>
+          <li class="list-group-item">Renting Price: $<%= @planet.renting_price %></li>
+          <li class="list-group-item">Owner: <%= @planet.user.name %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render "renting_form", planet: @planet, renting: @renting, class: "" %>
 
 
+<%#
 <div data-controller="toggle" class="mt-5">
   <button data-action="click->toggle#fire" class="btn btn-outline-primary">Book Planet</button>
   <div data-rentings-target="togglableElement" class="d-none">
-
   </div>
-</div>
+</div> %>

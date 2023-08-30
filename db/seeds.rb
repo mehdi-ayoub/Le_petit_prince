@@ -49,7 +49,7 @@ examples.each do |title, description|
     description: description,
     spaceport: "16 Villa Gaudelet, Paris",
     renting_price: 50,
-    image_url: "",
+    image_url: "https://cdn.hswstatic.com/gif/mercury-update.jpg",
     category: Category.all.sample,
     user: hai,
     created_at: Time.now,
