@@ -9,6 +9,7 @@ class PlanetsController < ApplicationController
 
   def show
     @planet = Planet.find(params[:id])
+    @renting = Renting.new
   end
 
   def create
@@ -16,7 +17,7 @@ class PlanetsController < ApplicationController
     @planet.category = Category.find(params[:planet][:category_id])
     @planet.user = current_user
     if @planet.save
-      redirect_to @planet, notice: "A planet was successfully added."
+      redirect_to planets_path, notice: "A planet was successfully added."
     else
       render :new, status: :unprocessable_entity
     end
