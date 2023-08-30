@@ -8,6 +8,7 @@ class PlanetsController < ApplicationController
   end
 
   def show
+    @planet = Planet.find(params[:id])
   end
 
   def create
@@ -44,13 +45,19 @@ class PlanetsController < ApplicationController
     end
   end
 
-  #Joshua
+  #Josua
   def destroy
     @planet = Planet.find(params[:id])
-    if @planet.destroy
-      redirect_to root_path, notice: "Planet was successfully deleted."
+
+    # Ensure that only the owner can update the planet
+    if current_user == @planet.user
+      if @planet.destroy!
+        redirect_to planets_path, notice: "Planet was successfully deleted."
+      else
+        render :index
+      end
     else
-      render :index
+      redirect_to planets_path, alert: "You are not authorized to delete this planet."
     end
   end
 
