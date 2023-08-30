@@ -5,7 +5,8 @@ class PlanetsController < ApplicationController
     @markers = @planets.geocoded.map do |planet|
       {
         lat: planet.latitude,
-        lng: planet.longitude
+        lng: planet.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {planet: planet})
       }
     end
   end
