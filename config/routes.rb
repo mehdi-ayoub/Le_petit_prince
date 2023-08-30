@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :planets, only: [:index, :new, :create, :edit, :update, :destroy, :show] do
     resources :rentings, only: [:index, :show, :new, :create]
   end
+  resources :rentings, only: [:show]
 end
