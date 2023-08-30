@@ -1,6 +1,14 @@
 class PlanetsController < ApplicationController
   def index
     @planets = Planet.all
+
+    @markers = @planets.geocoded.map do |planet|
+      {
+        lat: planet.latitude,
+        lng: planet.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {planet: planet})
+      }
+    end
   end
 
   def new
@@ -64,6 +72,6 @@ class PlanetsController < ApplicationController
 
   private
   def planet_params
-    params.require(:planet).permit(:title, :description, :renting_price, :image_url, :category_id)
+    params.require(:planet).permit(:title, :description, :renting_price, :image_url, :category_id, :spaceport)
   end
 end
