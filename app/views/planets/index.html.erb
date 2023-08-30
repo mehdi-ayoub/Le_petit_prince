@@ -2,7 +2,7 @@
 
 <div class="container">
   <h1>All Planets</h1>
-
+  <h4><%= link_to "Add new planet", new_planet_path, class: "btn btn-primary"%></h4>
   <div class="row">
     <% @planets.each do |planet| %>
       <div class="col-md-4 mb-4">
@@ -16,9 +16,10 @@
             <li class="list-group-item">Renting Price: $<%= planet.renting_price %></li>
             <li class="list-group-item">Owner: <%= planet.user.name %></li>
           </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">Edit Planet</a>
-            <a href="#" class="card-link">Delete Planet</a>
+          <div class="card-body d-flex p-2">
+            <%= link_to "Show planet", planet, class:"btn btn-success"%>
+            <%= link_to "Edit Planet", edit_planet_path(planet), class:"btn btn-primary"%>
+            <%= link_to "Destroy Planet", planet_path(planet), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
           </div>
         </div>
       </div>
