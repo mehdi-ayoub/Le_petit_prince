@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :planets, only: [:index, :new, :create, :edit, :update, :destroy, :show]
+  resources :rentings, only: [:show]
 end

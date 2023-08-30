@@ -56,4 +56,9 @@ examples.each do |title, description|
   )
 end
 
+puts "Generating rentings"
+
+Renting.create(user: hai, planet: Planet.first, start_date: Date.today, end_date: Date.today + 30)
+Renting.create(user: hai, planet: Planet.last, start_date: Date.today, end_date: Date.today + 90)
+
 puts "Finished generating planets"
