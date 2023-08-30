@@ -1,0 +1,35 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= @planet.banner_url %>');">
+  <div class="container">
+    <h1><%= @planets.name %></h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mt-5">
+    <% @renting.planet.each do |planet| %>
+      <div class="col-4">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= planet.image_url %>')">
+          <%= planet.name %>
+          <%= link_to "+", planet_path(planet), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "card-remove-link" %>
+          <div class="card-tags">
+            <% planet.tags.each do |tag| %>
+              <span><%= tag.name %></span>
+            <% end %>
+            <%= link_to "+", new_planet_planet_tag_path(planet) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row my-5 justify-content-center">
+    <div class="col-4" data-controller="form">
+      <button class="btn btn-secondary display-form" data-form-target="button" data-action="click->form#display">Add a planet</button>
+
+      <%= simple_form_for [@renting, @planet], html: {class: "d-none", data: {form_target: "form"}} do |f| %>
+        <%= f.input :name, placeholder: "Palm tree" %>
+        <%= f.input :image_url, placeholder: "https://some_nice_image_found_on_google.jpg" %>
+        <%= f.submit "Add", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
