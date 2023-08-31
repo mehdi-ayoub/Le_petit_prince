@@ -4,6 +4,6 @@
   <%= f.input :spaceport %>
   <%= f.input :renting_price %>
   <%= f.association :category %>
-  <%= f.input :image_url %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit "Update Planet" %>
 <% end %>
