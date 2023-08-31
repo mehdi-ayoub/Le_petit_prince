@@ -9,14 +9,14 @@
       <%= link_to "Show this Offer", renting %>
 
       <button class="btn btn-light"> <%= link_to "Accept Renting",
-        renting_path(renting),
+        accept_renting_path(renting),
         data: {turbo_method: :patch, turbo_confirm: "Do you want to accept this?"}
         %>
       </button>
       
       <button class="btn btn-danger">
         <%= link_to "Decline Renting",
-          renting_path(renting),
+          decline_renting_path(renting),
           data: {turbo_method: :patch, turbo_confirm: "Do you want to decline this?"}
         %>
       </button>
