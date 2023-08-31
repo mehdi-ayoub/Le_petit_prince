@@ -1,11 +1,33 @@
-<%= simple_form_for @planet do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :spaceport,
-  input_html: {data: {spaceport_autocomplete_target: "spaceport"}, class: "d-none"},
-  wrapper_html: {data: {controller: "spaceport-autocomplete", spaceport_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
-  <%= f.input :renting_price %>
-  <%= f.association :category %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit "create planet" %>
-<% end %>
+<div class="bg-blue">
+<div class="container">
+ <div class="card" style="width: 30rem; margin: 0 auto; margin-top: 3rem ; margin-bottom: 13rem ;">
+  <div class="row justify-content-between">
+   <div class="col-xs-12 col-sm4 col-sm-offset-4 col-md-12 col-lg-12">
+    <div class="d-flex justify-content-center">
+     <div class="position-relative">
+      <span class="border-200" mb-3></span>
+       <div class="card-header">My Planets</div>
+        <%= image_tag "new_planet.jpg", class: "card-img-top" %>
+         <div class="card-body">
+          <h4 class="card-title">Add your planet</h4>
+           <div class="row align-items-start">
+            <div class="form-inputs">
+             <%= simple_form_for @planet do |f| %>
+             <%= f.input :title %>
+             <%= f.input :description %>
+             <%= f.input :spaceport,
+             input_html: {data: {spaceport_autocomplete_target: "spaceport"}, class: "d-none"},
+             wrapper_html: {data: {controller: "spaceport-autocomplete", spaceport_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
+             <%= f.input :renting_price %>
+             <%= f.association :category %>
+             <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+            </div>
+              <%= f.submit "Add Planet", class: "btn btn-primary btn-width"%>
+              <% end %>
+           </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
