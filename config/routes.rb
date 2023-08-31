@@ -9,5 +9,9 @@ Rails.application.routes.draw do
     collection do
         get :my_offers
     end
+    member do
+      patch :accept
+      patch :decline
+    end
   end
 end

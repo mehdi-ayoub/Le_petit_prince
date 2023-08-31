@@ -4,11 +4,24 @@
     <p> Planet ID: <%= renting.planet_id %> </p>
     <p> From: <%= renting.start_date %> </p>
     <p> To: <%= renting.end_date %> </p>
+    <p> Status: <%= renting.status %> </p>
     <p>
       <%= link_to "Show this Offer", renting %>
-      <button class="btn btn-primary"> Accept Renting </button>
-      <button class="btn btn-danger"> Decline Renting </button>
+
+      <button class="btn btn-light"> <%= link_to "Accept Renting",
+        renting_path(renting),
+        data: {turbo_method: :patch, turbo_confirm: "Do you want to accept this?"}
+        %>
+      </button>
+      
+      <button class="btn btn-danger">
+        <%= link_to "Decline Renting",
+          renting_path(renting),
+          data: {turbo_method: :patch, turbo_confirm: "Do you want to decline this?"}
+        %>
+      </button>
     </p>
+
     ---------------------------------------------
   <% end %>
 </div>
