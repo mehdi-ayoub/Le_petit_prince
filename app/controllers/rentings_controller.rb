@@ -26,19 +26,20 @@ class RentingsController < ApplicationController
 
   def my_offers
     @rentings = current_user.rentings_as_owner
+    @rentings = @rentings.order(:id)
   end
 
   def accept
     @renting = Renting.find(params[:id])
     @renting.status = "accepted"
-    @renting.status.save
+    @renting.save
     redirect_to my_offers_rentings_path, status: :see_other
   end
 
   def decline
     @renting = Renting.find(params[:id])
     @renting.status = "declined"
-    @renting.status.save
+    @renting.save
     redirect_to my_offers_rentings_path, status: :see_other
   end
 

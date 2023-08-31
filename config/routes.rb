@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   resources :rentings, only: [:show] do
     collection do
-        get :my_offers
+      get :my_offers
     end
     member do
       patch :accept
