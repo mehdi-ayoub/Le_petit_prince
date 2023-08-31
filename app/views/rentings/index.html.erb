@@ -3,6 +3,7 @@
 <div class="container">
 <ul class="list-group-planet">
   <%= link_to "Back to Home", root_path, class:"btn btn-primary"%>
+  <%= link_to "My offers", my_offers_rentings_path, class:"btn btn-primary"%>
   <br>
    <tr>
    <strong>
@@ -18,7 +19,7 @@
          <li>Renting ID: <td><%= renting.id %></td> </li>
          <li> User: <td><%= renting.user.name %></td> </li>
           <li> Planet: <td><%= renting.planet.title %></td> </li>
-          <%# <%= link_to "Show details", planet_rentings_path(planet_id: @planet.id) %>
+          <%= link_to "Show details", renting_path(renting) %>
           ------------------------------------------------
         </ul>
       </tr>
