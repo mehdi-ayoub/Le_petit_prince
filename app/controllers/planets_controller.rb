@@ -7,6 +7,7 @@ class PlanetsController < ApplicationController
     @planet = Planet.new
   end
 
+  #Kim
   def show
     @planet = Planet.find(params[:id])
     @renting = Renting.new

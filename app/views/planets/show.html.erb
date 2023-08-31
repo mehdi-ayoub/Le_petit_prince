@@ -1,34 +1,11 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= @planet.image_url %>');">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
   <div class="container">
     <h1><%= @planet.title %></h1>
     <h2><%= @planet.description %></h2>
     <p>Owner:<%= @planet.user.name %><p>
-    <h3>Renting:<%= @planet.renting_price %></h3>
+    <h3>Renting price:<%= @planet.renting_price %></h3>
+    <a class="btn btn-flat" href="#">Make a booking</a>
   </div>
 </div>
 
-<div class="container">
-  <div class="row mt-5">
-    <% @planet.rentings.each do |renting| %>
-      <div class="col-4">
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= renting.image_url %>')">
-          <%= renting.title %>
-          <%= link_to "+", renting_path(renting), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "card-remove-link" %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="row my-5 justify-content-center">
-    <div class="col-4" data-controller="form">
-      <button class="btn btn-secondary display-form" data-form-target="button" data-action="click->form#display">Add a renting</button>
-
-      <%= simple_form_for [@planet, @renting], html: {class: "", data: {form_target: "form"}} do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= f.submit "Create renting", class: "btn btn-primary" %>
-      <% end %>
-
-    </div>
-  </div>
-</div>
+<a class="btn btn-ghost" href="#">Book now <%= link_to "Book now", "#", class: "btn btn-flat" %></a>
