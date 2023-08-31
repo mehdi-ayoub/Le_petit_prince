@@ -3,13 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :planets, only: [:index, :new, :create, :edit, :update, :destroy, :show] do
-<<<<<<< HEAD
-    resources :rentings, only: [:create]
-  end
-
-=======
     resources :rentings, only: [:index, :show, :new, :create]
   end
   resources :rentings, only: [:show]
->>>>>>> master
 end

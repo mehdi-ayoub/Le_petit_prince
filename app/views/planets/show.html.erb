@@ -1,21 +1,14 @@
-<<<<<<< HEAD
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
   <div class="container">
-    <h1><%= @planet.title %></h1>
-    <h2><%= @planet.description %></h2>
+    <h2><%= @planet.title %></h2>
     <p>Owner:<%= @planet.user.name %><p>
-    <h3>Renting price:<%= @planet.renting_price %></h3>
-    <a class="btn btn-flat" href="#">Make a booking</a>
+    <img src="<%= @planet.image_url %>" class="card-img-top" alt="<%= @planet.title %> Image">
   </div>
 </div>
 
-<a class="btn btn-ghost" href="#">Book now <%= link_to "Book now", "#", class: "btn btn-flat" %></a>
-=======
-
-
+<a class="btn btn-ghost" href="#"><%= link_to "Book now", "#", class: "btn btn-flat" %></a>
 
 <div class="container show-planet">
-  <h1> Planet Details </h1>
+  <h3> Planet Details </h3>
   <div class="row">
     <div class="col-md-4 mb-4">
       <div class="card" style="width: 18rem;">
@@ -49,4 +42,3 @@
   <div data-rentings-target="togglableElement" class="d-none">
   </div>
 </div> %>
->>>>>>> master
