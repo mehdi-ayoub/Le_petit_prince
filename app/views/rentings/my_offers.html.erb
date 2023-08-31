@@ -1,0 +1,14 @@
+<h1>My Planet Offers</h1>
+<div id="my_offers">
+  <% @rentings.each do |renting| %>
+    <p> Planet ID: <%= renting.planet_id %> </p>
+    <p> From: <%= renting.start_date %> </p>
+    <p> To: <%= renting.end_date %> </p>
+    <p>
+      <%= link_to "Show this Offer", renting %>
+      <button class="btn btn-primary"> Accept Renting </button>
+      <button class="btn btn-danger"> Decline Renting </button>
+    </p>
+    ---------------------------------------------
+  <% end %>
+</div>

@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   has_many :planets, dependent: :destroy
   has_many :rentings, dependent: :destroy
+  has_many :rentings_as_owner, through: :planets, source: :rentings
 end

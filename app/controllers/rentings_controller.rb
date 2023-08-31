@@ -24,6 +24,10 @@ class RentingsController < ApplicationController
     end
   end
 
+  def my_offers
+    @rentings = current_user.rentings_as_owner
+  end
+
   private
 
   def renting_params
