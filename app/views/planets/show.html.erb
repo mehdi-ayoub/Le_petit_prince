@@ -1,28 +1,37 @@
-  <div class="container">
-    <h2><%= @planet.title %></h2>
-    <p>Owner:<%= @planet.user.name %><p>
-    <img src="<%= @planet.image_url %>" class="card-img-top" alt="<%= @planet.title %> Image">
+  <h2><%= @planet.title %></h2>
+  <p> Owner:  <%= @planet.user.name %> Departure Location: <br> <%= @planet.spaceport %><p>
+
+  <div class="parent">
+    <% if @planet.photos.attached? %>
+      <% @planet.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 250, width: 100, crop: :fill, class: "card-img-top image-index" %>
+        <% end %>
+      <% else %>
+        <%= image_tag "planet.jpg", class: "card-img-top image-index", alt: "Default Image", height: "100%", width: 100, style: "object-fit: cover;" %>
+      <% end %>
+    <div class="cards">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      </div>
+
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+      </div>
+
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+      </div>
+
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+      </div>
+    </div>
   </div>
-</div>
 
-<<<<<<< HEAD
-<a class="btn btn-ghost" href="#"><%= link_to "Book now", "#", class: "btn btn-flat" %></a>
-
-=======
->>>>>>> master
 <div class="container show-planet">
-  <h3> Planet Details </h3>
+
   <div class="row">
     <div class="col-md-4 mb-4">
       <div class="card" style="width: 18rem;">
-        <% if @planet.photos.attached? %>
-          <% @planet.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, height: 250, width: 100, crop: :fill, class: "card-img-top image-index" %>
-          <% end %>
-        <% else %>
-          <%= image_tag "planet.jpg", class: "card-img-top image-index", alt: "Default Image", height: 250, width: 100, style: "object-fit: cover;" %>
-        <% end %>
+
         <div class="card-body">
+          <h3> Planet Details </h3>
           <h5 class="card-title"><%= @planet.title %></h5>
           <p class="card-text"> <b> Departure Location: </b> <br> <%= @planet.spaceport %></p>
         </div>
