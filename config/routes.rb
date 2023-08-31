@@ -5,5 +5,13 @@ Rails.application.routes.draw do
   resources :planets, only: [:index, :new, :create, :edit, :update, :destroy, :show] do
     resources :rentings, only: [:index, :show, :new, :create]
   end
-  resources :rentings, only: [:show]
+  resources :rentings, only: [:show] do
+    collection do
+        get :my_offers
+    end
+    member do
+      patch :accept
+      patch :decline
+    end
+  end
 end

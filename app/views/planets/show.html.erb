@@ -1,12 +1,16 @@
 
-
-
 <div class="container show-planet">
   <h1> Planet Details </h1>
   <div class="row">
     <div class="col-md-4 mb-4">
       <div class="card" style="width: 18rem;">
-        <img src="<%= @planet.image_url %>" class="card-img-top" alt="<%= @planet.title %> Image">
+        <% if @planet.photos.attached? %>
+          <% @planet.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 250, width: 100, crop: :fill, class: "card-img-top image-index" %>
+          <% end %>
+        <% else %>
+          <%= image_tag "planet.jpg", class: "card-img-top image-index", alt: "Default Image", height: 250, width: 100, style: "object-fit: cover;" %>
+        <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= @planet.title %></h5>
           <p class="card-text"> <b> Departure Location: </b> <br> <%= @planet.spaceport %></p>
@@ -28,8 +32,6 @@
 </div>
 
 <%= render "renting_form", planet: @planet, renting: @renting, class: "" %>
-
-
 <%#
 <div data-controller="toggle" class="mt-5">
   <button data-action="click->toggle#fire" class="btn btn-outline-primary">Book Planet</button>
