@@ -1,15 +1,5 @@
-# category_names = [
-#   "Planetes du Roi",
-#   "Planetes de vaniteux",
-#   "Planetes de buveur",
-#   "Planetes de bussinessman",
-#   "Planetes d' allumeur de reverbere",
-#   "Planetes de geographe",
-#   "Planetary Exploration",
-#   "Planetary Atmospheres",
-#   "Planetary Features",
-#   "Planet Formation"
-# ]
+require "open-uri"
+
 puts "Cleaning database..."
 User.destroy_all
 Planet.destroy_all
@@ -56,7 +46,7 @@ examples = {
   "TRAPPIST-1e" => "A potentially habitable exoplanet in the TRAPPIST-1 system.",
 }
 examples.each do |title, description|
-  Planet.create!(
+  planet = Planet.create!(
     title: title,
     description: description,
     spaceport: "16 Villa Gaudelet, Paris",
@@ -67,8 +57,14 @@ examples.each do |title, description|
     created_at: Time.now,
     updated_at: Time.now
   )
-end
 
+
+  # Mercury 1
+  file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+  planet.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+  planet.save
+
+end
 puts "Generating rentings"
 
 Renting.create(user: hai, planet: Planet.first, start_date: Date.today, end_date: Date.today + 30)
