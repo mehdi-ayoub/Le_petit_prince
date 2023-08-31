@@ -1,4 +1,5 @@
 class Planet < ApplicationRecord
+  has_many_attached :photos
   belongs_to :category
   belongs_to :user
   has_many :rentings, dependent: :destroy
