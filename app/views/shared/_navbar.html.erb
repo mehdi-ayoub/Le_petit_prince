@@ -1,41 +1,20 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<nav class="navbar navbar-expand-lg bg-body-tertiary navbar-home">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <i class="fa-solid fa-earth-americas mt-1"></i>
     <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
+    <%= link_to "unibnb", root_path, class:"navbar-brand" %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to " Add Planet", new_planet_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://www.thoughtco.com/thmb/bZbxog9GJSRxvMN9ZfHiXZLVRyo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Earth_Eastern_Hemisphere-56a8cda43df78cf772a0cc74.jpg", alt: "dropdown menu", class: "avatar" %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
-          </li>
-        <% end %>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Planets", planets_path, class: "nav-link"%>
+        </li>
       </ul>
     </div>
+    <div>
+    </div>
   </div>
-</div>
+</nav>
