@@ -59,13 +59,19 @@ examples.each do |title, description|
   Planet.create!(
     title: title,
     description: description,
+    spaceport: "16 Villa Gaudelet, Paris",
     renting_price: 50,
-    image_url: "",
+    image_url: "https://cdn.hswstatic.com/gif/mercury-update.jpg",
     category: Category.all.sample,
     user: hai,
     created_at: Time.now,
     updated_at: Time.now
   )
 end
+
+puts "Generating rentings"
+
+Renting.create(user: hai, planet: Planet.first, start_date: Date.today, end_date: Date.today + 30)
+Renting.create(user: hai, planet: Planet.last, start_date: Date.today, end_date: Date.today + 90)
 
 puts "Finished generating planets"

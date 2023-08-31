@@ -1,6 +1,14 @@
 class PlanetsController < ApplicationController
   def index
     @planets = Planet.all
+
+    @markers = @planets.geocoded.map do |planet|
+      {
+        lat: planet.latitude,
+        lng: planet.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {planet: planet})
+      }
+    end
   end
 
   def new
@@ -18,7 +26,7 @@ class PlanetsController < ApplicationController
     @planet.category = Category.find(params[:planet][:category_id])
     @planet.user = current_user
     if @planet.save
-      redirect_to @planet, notice: "A planet was successfully added."
+      redirect_to planets_path, notice: "A planet was successfully added."
     else
       render :new, status: :unprocessable_entity
     end
@@ -65,6 +73,6 @@ class PlanetsController < ApplicationController
 
   private
   def planet_params
-    params.require(:planet).permit(:title, :description, :renting_price, :image_url, :category_id)
+    params.require(:planet).permit(:title, :description, :renting_price, :image_url, :category_id, :spaceport)
   end
 end

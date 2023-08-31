@@ -1,0 +1,27 @@
+<h1>My Rented Planets</h1>
+
+<div class="container">
+<ul class="list-group-planet">
+  <%= link_to "Back to Home", root_path, class:"btn btn-primary"%>
+  <br>
+   <tr>
+   <strong>
+      <th>Renting ID</th>
+      <th>User</th>
+      <th>Planet</th>
+    </strong>
+    </tr>
+    <br>
+    <% @rentings.each do |renting| %>
+      <tr>
+        <ul>
+         <li>Renting ID: <td><%= renting.id %></td> </li>
+         <li> User: <td><%= renting.user.name %></td> </li>
+          <li> Planet: <td><%= renting.planet.title %></td> </li>
+          <%# <%= link_to "Show details", planet_rentings_path(planet_id: @planet.id) %>
+          ------------------------------------------------
+        </ul>
+      </tr>
+    <% end %>
+    </ul>
+  </div>
