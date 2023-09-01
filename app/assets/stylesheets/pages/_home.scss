@@ -4,4 +4,20 @@
   height: 500px;
 }
 
+.banner-home {
+background-image: url(home_planet.jpg);
+background-size: cover;
+background-position: center;
+margin: auto;
+padding: 70px 0px;
+border-radius: 10px;
+box-shadow: rgba(61, 102, 129, 0.4) 0px 30px 90px;
+}
 
+// .bg-dark {
+//   background-color: #0B2447;
+// }
+
+.list-group-item {
+  background-color: #d3dadb;
+}
