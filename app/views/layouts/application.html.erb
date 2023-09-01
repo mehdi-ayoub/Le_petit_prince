@@ -14,16 +14,19 @@
   </head>
 
   <body style="background-color: white;">
+  <div class="d-flex flex-column min-vh-100">
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <%= yield %>
-     <footer class="footer bg-dark text-white py-4 mt-2">
+    <div class="flex-grow-1">
+      <%= yield %>
+    </div>
+    <footer class="footer bg-dark text-white py-4 mt-2">
       <div class="container text-center">
        <p>&copy; 2023 Unibnb. All rights reserved.</p>
        <i class="fab fa-instagram"></i>
        <i class="fab fa-twitter"></i>
        <i class="fab fa-facebook-f"></i>
       </div>
-     </footer>
+    </footer>
   </body>
 </html>
