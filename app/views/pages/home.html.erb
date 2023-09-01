@@ -1,22 +1,20 @@
 
-<div class= "container mt-4" style="text-align: center;">
-  <section class="hero bg-primary text-white text-center py-5 mt-2 mb-2">
+<div class= "container" style="text-align: center;">
+  <section class="hero bg-color text-white text-center py-5 mt-2 mb-2">
+  <div class="banner-home">
     <div class="container">
+  <div class="title-page" style="margin-top: 1rem ; margin-left: 2rem;">
       <h1 class="display-4">Find Your Perfect Planet</h1>
       <p class="lead">Explore unique homes, experiences, and places around the universe.</p>
       <p><%= link_to "Get Started", planets_path, class: "btn btn-light btn-lg"%></p>
-    </div>
+      </div>
+        </div>
+      </div>
   </section>
 
-  <ul class="list-group">
+  <ul class="list-group card">
     <% @categories.each_with_index do |category, index| %>
       <li class="list-group-item" aria-current="true"><%= category.name %></li>
     <% end %>
   </ul>
 </div>
-
-<footer class="footer bg-dark text-white py-4 mt-2">
-  <div class="container text-center">
-    <p>&copy; 2023 Your Company. All rights reserved.</p>
-  </div>
-</footer>
