@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :planets, only: [:index, :new, :create, :edit, :update, :destroy, :show] do
-    resources :rentings, only: [:index, :show, :new, :create]
+    resources :rentings, only: [:new, :create]
   end
-  resources :rentings, only: [:show] do
+  resources :rentings, only: [:index, :show] do
     collection do
       get :my_offers
     end

@@ -1,0 +1,46 @@
+// Base styles and variables
+$primary-color: #007bff;
+$secondary-color: #17a2b8;
+
+// Style the main header
+h1 {
+  text-align: center;
+  margin: 40px 0;
+}
+
+// Style the container
+.container {
+  .d-flex {
+    margin-bottom: 20px;
+
+    a.btn {
+      &:first-child {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  // Style the table
+  table {
+    thead {
+      background-color: darken($primary-color, 15%);
+      color: white;
+    }
+
+    tbody {
+      tr:hover {
+        background-color: #f8f9fa;
+      }
+    }
+
+    // Style the action buttons
+    td {
+      a.btn-info {
+        background-color: $secondary-color;
+        &:hover {
+          background-color: darken($secondary-color, 10%);
+        }
+      }
+    }
+  }
+}

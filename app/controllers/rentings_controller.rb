@@ -18,7 +18,7 @@ class RentingsController < ApplicationController
     @renting = current_user.rentings.build(planet: @planet)
 
     if @renting.save
-      redirect_to planet_rentings_path, notice: 'Planet rented successfully.'
+      redirect_to rentings_path, notice: 'Planet rented successfully.'
     else
       render :new
     end
