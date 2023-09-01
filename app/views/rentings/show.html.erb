@@ -1,9 +1,14 @@
+ <div class="banner">
+ <div class="container">
+  <div class="title-page" style="margin-top: 1rem ; margin-left: 2rem;"><h1>Renting Details</h1></div>
+  </div>
+</div>
+
 <div class="show-renting">
   <img src="<%= @renting.planet.image_url %>" alt="<%= @renting.planet.title %>">
   <h1><%= @renting.planet.title %></h1>
   <p><%= number_to_currency(@renting.planet.renting_price, unit: "$", precision: 2) %></p>
-  <p>Start Date: <%= @renting.start_date.strftime('%d %B, %Y') %></p>
-  <p>End Date: <%= @renting.end_date.strftime('%d %B, %Y') %></p>
+  <p>Start Date: <%= @renting.start_date %></p>
+  <p>End Date: <%= @renting.end_date %></p>
   <%= link_to "Back to Renting List", rentings_path %>
 </div>
-

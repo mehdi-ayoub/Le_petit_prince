@@ -88,12 +88,15 @@ examples.each do |title, description|
     created_at: Time.now,
     updated_at: Time.now
   )
+  puts planet.image_url
+end
+
 
   # Attach the image to the planet model
   image = URI.open(planet_images[title])
   planet.photos.attach(io: image, filename: "#{title}.jpg", content_type: 'image/jpg')
 
-end
+# end
 puts "Generating rentings"
 
 Renting.create(user: hai, planet: Planet.first, start_date: Date.today, end_date: Date.today + 30)

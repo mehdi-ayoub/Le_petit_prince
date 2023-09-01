@@ -1,4 +1,4 @@
-<div class="banner">
+<div class="banner mb-2">
  <div class="container">
   <div class="title-page" style="margin-top: 1rem ; margin-left: 2rem;"><h1>Discover our range of planets</h1></div>
   </div>
@@ -19,13 +19,13 @@
             <% if planet.photos.attached? %>
               <%= image_tag planet.photos.first, height: 250, width: 100, crop: :fill, class: "card-img-top image-index", alt: planet.title %>
             <% else %>
-              <%= image_tag "planet.jpg", class: "card-img-top image-index", alt: "Default Image", height: 250, width: 100, style: "object-fit: cover;" %>
+              <%= image_tag planet.image_url, class: "card-img-top image-index", alt: "Default Image", height: 250, width: 100, style: "object-fit: cover;" %>
             <% end %>
           <% end %>
           <div class="card-body index-card-elements" style="padding: 0;">
-            <p class="card-title m-0"> Take off to <%= planet.title %></p>
+            <p class="card-title m-0">Take off to <%= planet.title %></p>
             <p class="card-text m-0"><%= planet.spaceport %></p>
-            <p class="card-text m-0"><%= planet.renting_price%>/night</p>
+            <p class="card-text m-0"><%= planet.renting_price %>/night</p>
           </div>
         </div>
       </div>
