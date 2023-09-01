@@ -1,4 +1,11 @@
-<h1>My Planet Offers</h1>
+  <div class="banner">
+ <div class="container">
+  <div class="title-page" style="margin-top: 1rem ; margin-left: 2rem;"><h1>My Offers</h1></div>
+  </div>
+</div>
+
+<div class="container">
+<div class="card" style="margin-top: 1rem;">
 <div id="my_offers">
   <% @rentings.each do |renting| %>
     <p> Planet ID: <%= renting.planet_id %> </p>
@@ -24,4 +31,6 @@
 
     ---------------------------------------------
   <% end %>
+</div>
+</div>
 </div>

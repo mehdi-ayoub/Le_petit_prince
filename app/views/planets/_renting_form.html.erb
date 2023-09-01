@@ -1,9 +1,16 @@
-<%= simple_form_for [@planet, @renting] do |f| %>
-  <%= f.input :start_date,
+
+<div class="container d-flex justify-content-between">
+ <div class="card" style="margin-bottom: 3rem ">
+ <div class="card-header"><h4>Rent a Planet</h4>
+   <%= simple_form_for [@planet, @renting] do |f| %>
+   <%= f.input :start_date,
               as: :string,
               input_html: { data: { controller: "datepicker" } } %>
-  <%= f.input :end_date,
+   <%= f.input :end_date,
               as: :string,
               input_html: { data: { controller: "datepicker" } } %>
-  <%= f.submit "Request to rent Planet" %>
-<% end %>
+   <%= f.submit "Request to rent Planet" %>
+  <% end %>
+  </div>
+ </div>
+</div>
