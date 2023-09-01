@@ -1,25 +1,214 @@
+  <h2><b><%= @planet.title %></b></h2>
+  <p> Owner:  <%= @planet.user.name %> Departure Location: <br> <%= @planet.spaceport %><p>
 
-<div class="container show-planet">
-  <h1> Planet Details </h1>
+  <div class="parent">
+
+    <section>
+    <div class="container">
+        <div class="carousel">
+            <input type="radio" name="slides" checked="checked" id="slide-1">
+            <input type="radio" name="slides" id="slide-2">
+            <input type="radio" name="slides" id="slide-3">
+            <input type="radio" name="slides" id="slide-4">
+            <input type="radio" name="slides" id="slide-5">
+            <input type="radio" name="slides" id="slide-6">
+            <ul class="carousel__slides">
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <%# <img src="https://picsum.photos/id/1041/800/450" alt=""> %>
+                            <% if @planet.photos.attached? %>
+                              <% @planet.photos.each do |photo| %>
+                              <%= cl_image_tag photo.key, height: "100%", width: "100%", crop: :fill, class: "card-img-top image-index" %>
+                              <% end %>
+                            <% else %>
+                              <%= image_tag "planet.jpg", class: "card-img-top image-index", alt: "Default Image", height: "100%", width: "100%", style: "object-fit: cover;" %>
+                            <% end %>
+                        </div>
+                        <figcaption>
+                            <b><%= @planet.title %></b><br><%= @planet.description  %>
+                            <br><br> Renting Price: $<%= @planet.renting_price %>
+                            <span class="credit">Owner: <%= @planet.user.name %></span>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <%# <img src="https://picsum.photos/id/1043/800/450" alt=""> %>
+                            <% if @planet.photos.attached? %>
+                              <% @planet.photos.each do |photo| %>
+                              <%= cl_image_tag photo.key, height: "100%", width: "100%", crop: :fill, class: "card-img-top image-index" %>
+                              <% end %>
+                            <% else %>
+                              <%= image_tag "planet.jpg", class: "card-img-top image-index", alt: "Default Image", height: "100%", width: "100%", style: "object-fit: cover;" %>
+                            <% end %>
+                        </div>
+                        <figcaption>
+                            <b><%= @planet.title %></b><br><%= @planet.description  %>
+                            <br><br> Renting Price: $<%= @planet.renting_price %>
+                            <span class="credit">Owner: <%= @planet.user.name %></span>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <%# <img src="https://picsum.photos/id/1044/800/450" alt=""> %>
+                            <% if @planet.photos.attached? %>
+                              <% @planet.photos.each do |photo| %>
+                              <%= cl_image_tag photo.key, height: "100%", width: "100%", crop: :fill, class: "card-img-top image-index" %>
+                              <% end %>
+                            <% else %>
+                              <%= image_tag "planet.jpg", class: "card-img-top image-index", alt: "Default Image", height: "100%", width: "100%", style: "object-fit: cover;" %>
+                            <% end %>
+                        </div>
+                        <figcaption>
+                            <b><%= @planet.title %></b><br><%= @planet.description  %>
+                            <br><br> Renting Price: $<%= @planet.renting_price %>
+                            <span class="credit">Owner: <%= @planet.user.name %></span>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <%# <img src="https://picsum.photos/id/1045/800/450" alt=""> %>
+                            <% if @planet.photos.attached? %>
+                              <% @planet.photos.each do |photo| %>
+                              <%= cl_image_tag photo.key, height: "100%", width: "100%", crop: :fill, class: "card-img-top image-index" %>
+                              <% end %>
+                            <% else %>
+                              <%= image_tag "planet.jpg", class: "card-img-top image-index", alt: "Default Image", height: "100%", width: "100%", style: "object-fit: cover;" %>
+                            <% end %>
+                        </div>
+                        <figcaption>
+                            <b><%= @planet.title %></b><br><%= @planet.description  %>
+                            <br><br> Renting Price: $<%= @planet.renting_price %>
+                            <span class="credit">Owner: <%= @planet.user.name %></span>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <%# <img src="https://picsum.photos/id/1049/800/450" alt=""> %>
+                            <% if @planet.photos.attached? %>
+                              <% @planet.photos.each do |photo| %>
+                              <%= cl_image_tag photo.key, height: "100%", width: "100%", crop: :fill, class: "card-img-top image-index" %>
+                              <% end %>
+                            <% else %>
+                              <%= image_tag "planet.jpg", class: "card-img-top image-index", alt: "Default Image", height: "100%", width: "100%", style: "object-fit: cover;" %>
+                            <% end %>
+                        </div>
+                        <figcaption>
+                            <b><%= @planet.title %></b><br><%= @planet.description  %>
+                            <br><br> Renting Price: $<%= @planet.renting_price %>
+                            <span class="credit">Owner: <%= @planet.user.name %></span>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <%# <img src="https://picsum.photos/id/1052/800/450" alt=""> %>
+                            <% if @planet.photos.attached? %>
+                              <% @planet.photos.each do |photo| %>
+                              <%= cl_image_tag photo.key, height: "100%", width: "100%", crop: :fill, class: "card-img-top image-index" %>
+                              <% end %>
+                            <% else %>
+                              <%= image_tag "planet.jpg", class: "card-img-top image-index", alt: "Default Image", height: "100%", width: "100%", style: "object-fit: cover;" %>
+                            <% end %>
+                        </div>
+                        <figcaption>
+                            <b><%= @planet.title %></b><br><%= @planet.description  %>
+                            <br><br> Renting Price: $<%= @planet.renting_price %>
+                            <span class="credit">Owner: <%= @planet.user.name %></span>
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+            <br>
+            <ul class="carousel__thumbnails">
+                <li>
+                    <label for="slide-1">
+                    <% if @planet.photos.attached? %>
+                      <% @planet.photos.each do |photo| %>
+                        <%= cl_image_tag photo.key, height: "100%", width: "100%", crop: :fill, class: "card-img-top image-index" %>
+                          <% end %>
+                    <% else %>
+                      <%= image_tag "planet.jpg", class: "card-img-top image-index", alt: "Default Image", height: "100%", width: "100%", style: "object-fit: cover;" %>
+                        <% end %></label>
+                </li>
+                <li>
+                    <label for="slide-2"><% if @planet.photos.attached? %>
+                      <% @planet.photos.each do |photo| %>
+                        <%= cl_image_tag photo.key, height: "100%", width: "100%", crop: :fill, class: "card-img-top image-index" %>
+                          <% end %>
+                    <% else %>
+                      <%= image_tag "planet.jpg", class: "card-img-top image-index", alt: "Default Image", height: "100%", width: "100%", style: "object-fit: cover;" %>
+                        <% end %></label>
+                </li>
+                <li>
+                    <label for="slide-3"><% if @planet.photos.attached? %>
+                      <% @planet.photos.each do |photo| %>
+                        <%= cl_image_tag photo.key, height: "100%", width: "100%", crop: :fill, class: "card-img-top image-index" %>
+                          <% end %>
+                    <% else %>
+                      <%= image_tag "planet.jpg", class: "card-img-top image-index", alt: "Default Image", height: "100%", width: "100%", style: "object-fit: cover;" %>
+                        <% end %></label>
+                </li>
+                <li>
+                    <label for="slide-4"><% if @planet.photos.attached? %>
+                      <% @planet.photos.each do |photo| %>
+                        <%= cl_image_tag photo.key, height: "100%", width: "100%", crop: :fill, class: "card-img-top image-index" %>
+                          <% end %>
+                    <% else %>
+                      <%= image_tag "planet.jpg", class: "card-img-top image-index", alt: "Default Image", height: "100%", width: "100%", style: "object-fit: cover;" %>
+                        <% end %></label>
+                </li>
+                <li>
+                    <label for="slide-5"><% if @planet.photos.attached? %>
+                      <% @planet.photos.each do |photo| %>
+                        <%= cl_image_tag photo.key, height: "100%", width: "100%", crop: :fill, class: "card-img-top image-index" %>
+                          <% end %>
+                    <% else %>
+                      <%= image_tag "planet.jpg", class: "card-img-top image-index", alt: "Default Image", height: "100%", width: "100%", style: "object-fit: cover;" %>
+                        <% end %></label>
+                </li>
+                <li>
+                    <label for="slide-6"><% if @planet.photos.attached? %>
+                      <% @planet.photos.each do |photo| %>
+                        <%= cl_image_tag photo.key, height: "100%", width: "100%", crop: :fill, class: "card-img-top image-index" %>
+                          <% end %>
+                    <% else %>
+                      <%= image_tag "planet.jpg", class: "card-img-top image-index", alt: "Default Image", height: "100%", width: "100%", style: "object-fit: cover;" %>
+                        <% end %></label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+  </div>
+
+  <br>
+
+  <div class="container show-planet">
   <div class="row">
     <div class="col-md-4 mb-4">
-      <div class="card" style="width: 18rem;">
-        <% if @planet.photos.attached? %>
-          <% @planet.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, height: 250, width: 100, crop: :fill, class: "card-img-top image-index" %>
-          <% end %>
-        <% else %>
-          <%= image_tag "planet.jpg", class: "card-img-top image-index", alt: "Default Image", height: 250, width: 100, style: "object-fit: cover;" %>
-        <% end %>
-        <div class="card-body">
-          <h5 class="card-title"><%= @planet.title %></h5>
-          <p class="card-text"> <b> Departure Location: </b> <br> <%= @planet.spaceport %></p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"><%= @planet.description  %></li>
-          <li class="list-group-item">Renting Price: $<%= @planet.renting_price %></li>
-          <li class="list-group-item">Owner: <%= @planet.user.name %></li>
-        </ul>
+      <div class="card" style="width: 50rem;">
+
+        <%# <div class="card-body">
+          <h3> Planet Details </h3>
+          <h5 class="card-title"><%= @planet.title %>
+          <%# <p class="card-text"> <b> Departure Location: </b> <br> <%= @planet.spaceport %>
+        <%# </div> %>
+        <%# <ul class="list-group list-group-flush"> %>
+          <%# <li class="list-group-item"><%= @planet.description  %>
+          <%# <li class="list-group-item">Renting Price: $<%= @planet.renting_price %>
+          <%# <li class="list-group-item">Owner: <%= @planet.user.name %>
+        <%# </ul> %>
         <% if current_user == @planet.user %>
           <div class="card-body d-flex p-2">
             <%= link_to "Edit Planet", edit_planet_path(@planet), class: "card-text" %>
@@ -27,9 +216,7 @@
           </div>
         <% end %>
       </div>
-    </div>
-  </div>
-</div>
+      <br>
 
 <%= render "renting_form", planet: @planet, renting: @renting, class: "" %>
 <%#
