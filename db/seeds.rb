@@ -42,13 +42,22 @@ examples = {
   "Eris" => "Another dwarf planet beyond Pluto, Eris is known for its highly elliptical orbit.",
   "Proxima Centauri b" => "An exoplanet in the habitable zone of the closest star to our Sun",
   "TRAPPIST-1e" => "A potentially habitable exoplanet in the TRAPPIST-1 system.",
+
+  # Planets and asteroids from The Little Prince
+  "Asteroid B-612" => "The home of the Little Prince. It's a tiny planet with baobab trees and a rose.",
+  "The King's Planet" => "Inhabited by a king who believes he rules the universe, even though his planet is very small.",
+  "The Vain Man's Planet" => "Home to a man who desires nothing more than to be admired.",
+  "The Drunkard's Planet" => "Houses a drunkard who drinks to forget the shame of drinking.",
+  "The Lamplighter's Planet" => "Occupied by a lamplighter who lights and extinguishes a lamppost repeatedly.",
+  "The Geographer's Planet" => "Inhabited by a geographer who has never explored his own planet.",
+  "The Businessman's Planet" => "Home to a man who constantly counts the stars, claiming to own them.",
 }
 examples.each do |title, description|
   Planet.create!(
     title: title,
     description: description,
     spaceport: "16 Villa Gaudelet, Paris",
-    renting_price: 50,
+    renting_price: rand(100..500),
     image_url: "https://cdn.hswstatic.com/gif/mercury-update.jpg",
     category: Category.all.sample,
     user: hai,
