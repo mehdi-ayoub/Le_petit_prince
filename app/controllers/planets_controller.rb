@@ -9,6 +9,9 @@ class PlanetsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {planet: planet})
       }
     end
+    if params[:query]
+      @planets = Planet.search_by_title_and_description(params[:query])
+    end
   end
 
   def new
