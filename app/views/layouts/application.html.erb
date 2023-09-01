@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CHANGEThisToYourRailsAppName</title>
+    <title>Unibnb</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,9 +13,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   </head>
 
-  <body style="background-color: #F8F6F4;">
+  <body style="background-color: white;">
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>
+     <footer class="footer bg-dark text-white py-4 mt-2">
+      <div class="container text-center">
+       <p>&copy; 2023 Unibnb. All rights reserved.</p>
+       <i class="fab fa-instagram"></i>
+       <i class="fab fa-twitter"></i>
+       <i class="fab fa-facebook-f"></i>
+      </div>
+     </footer>
   </body>
 </html>
