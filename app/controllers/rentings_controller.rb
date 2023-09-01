@@ -17,6 +17,9 @@ class RentingsController < ApplicationController
     @planet = Planet.find(params[:planet_id])
     @renting = current_user.rentings.build(planet: @planet)
 
+    @renting.start_date = params[:renting][:start_date]
+    @renting.end_date = params[:renting][:end_date]
+
     if @renting.save
       redirect_to rentings_path, notice: 'Planet rented successfully.'
     else
