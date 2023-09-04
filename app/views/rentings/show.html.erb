@@ -5,7 +5,9 @@
 </div>
 
 <div class="show-renting">
-  <img src="<%= @renting.planet.image_url %>" alt="<%= @renting.planet.title %>">
+  <% if @renting.planet.photos.attached? %>
+      <%= image_tag @renting.planet.photos.first, alt: @renting.planet.title %>
+  <% end %>
   <h1><%= @renting.planet.title %></h1>
   <p><%= number_to_currency(@renting.planet.renting_price, unit: "$", precision: 2) %></p>
   <p>Start Date: <%= @renting.start_date %></p>

@@ -2,6 +2,14 @@
 $primary-color: #007bff;
 $secondary-color: #17a2b8;
 
+body {
+  font-family: $body-font;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headers-font;
+}
+
 // Style the main header
 h1 {
   text-align: center;

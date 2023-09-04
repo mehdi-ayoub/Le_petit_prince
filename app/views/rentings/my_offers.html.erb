@@ -1,36 +1,28 @@
-  <div class="banner">
- <div class="container">
-  <div class="title-page" style="margin-top: 1rem ; margin-left: 2rem;"><h1>My Offers</h1></div>
+<div class="banner bg-primary text-white">
+  <div class="container py-4">
+    <h1 class="title-page">My Offers</h1>
   </div>
 </div>
 
-<div class="container">
-<div class="card" style="margin-top: 1rem;">
-<div id="my_offers">
-  <% @rentings.each do |renting| %>
-    <p> Planet ID: <%= renting.planet_id %> </p>
-    <p> From: <%= renting.start_date %> </p>
-    <p> To: <%= renting.end_date %> </p>
-    <p> Status: <%= renting.status %> </p>
-    <p>
-      <%= link_to "Show this Offer", renting %>
-
-      <button class="btn btn-light"> <%= link_to "Accept Renting",
-        accept_renting_path(renting),
-        data: {turbo_method: :patch, turbo_confirm: "Do you want to accept this?"}
-        %>
-      </button>
-
-      <button class="btn btn-danger">
-        <%= link_to "Decline Renting",
-          decline_renting_path(renting),
-          data: {turbo_method: :patch, turbo_confirm: "Do you want to decline this?"}
-        %>
-      </button>
-    </p>
-
-    ---------------------------------------------
-  <% end %>
-</div>
-</div>
+<div class="container mt-5">
+  <div class="card shadow-lg">
+    <div id="my_offers" class="p-4">
+      <% @rentings.each do |renting| %>
+        <div class="renting-item mb-5">
+          <h4 class="text-secondary">Planet ID: <%= renting.planet_id %></h4>
+          <p><strong>From:</strong> <%= renting.start_date %></p>
+          <p><strong>To:</strong> <%= renting.end_date %></p>
+          <p><strong>Status:</strong> <%= renting.status %></p>
+          <div class="actions mt-3">
+            <%= link_to "Show this Offer", renting, class: "btn btn-info mr-2" %>
+            <%= link_to "Accept Renting", accept_renting_path(renting),
+                        data: {turbo_method: :patch, turbo_confirm: "Do you want to accept this?"}, class: "btn btn-success mr-2" %>
+            <%= link_to "Decline Renting", decline_renting_path(renting),
+                        data: {turbo_method: :patch, turbo_confirm: "Do you want to decline this?"}, class: "btn btn-danger" %>
+          </div>
+          <hr class="my-4">
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
