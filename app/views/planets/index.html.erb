@@ -17,8 +17,7 @@
         <div class="card card-index" style="width: 20rem;">
           <%= link_to planet_path(planet) do %>
             <% if planet.photos.attached? %>
-              <% primary_photo = planet.photos.first %>
-              <%= cl_image_tag primary_photo.key, height: 250, width: 100, crop: :fill, class: "card-img-top image-index" %>
+              <%= image_tag planet.photos.first, height: 250, width: 100, crop: :fill, class: "card-img-top image-index", alt: planet.title %>
             <% else %>
               <%= image_tag planet.image_url, class: "card-img-top image-index", alt: "Default Image", height: 250, width: 100, style: "object-fit: cover;" %>
             <% end %>
